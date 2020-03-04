@@ -1,12 +1,14 @@
 'use strict';
 
 let mongoose = require('mongoose'),
-  Resume = mongoose.model('Resume');
+  Resume = mongoose.model('Resume'),
+  master_id = '5e5d397ee7c0c802b6e37254';
 
   exports.list_all_resumes = (req, res) => {
-    Resume.find({}, (err, resume) => {
+    Resume.findById(master_id, (err, resume) => {
       if(err)
         res.send(err);
+      console.log('resume', resume);
       res.json(resume);
     });
   };
@@ -21,7 +23,7 @@ let mongoose = require('mongoose'),
   };
 
   exports.read_resume = (req, res) => {
-    Resume.findById(req.params.resumeId, (err, resume) => {
+    Resume.findById(master_id, (err, resume) => {
       if(err)
         res.send(err);
       res.json(resume);
@@ -29,7 +31,7 @@ let mongoose = require('mongoose'),
   };
 
   exports.update_resume = (req, res) => {
-    Resume.findOneAndUpdate({_id: req.params.resumeId}, req.body, {new: true}, (err, resume) => {
+    Resume.findOneAndUpdate({_id: master_id}, req.body, {new: true}, (err, resume) => {
       if(err)
         res.send(err);
       res.json(resume);

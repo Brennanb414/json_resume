@@ -5,9 +5,9 @@ module.exports = function(app) {
   app.route('/resume')
     .get(resume.list_all_resumes)
     .post(resume.create_resume)
-  
-  app.route('/resume/:resumeId')
-    .get(resume.read_resume)
     .put(resume.update_resume)
-    .delete(resume.delete_resume)
+  
+  // app.route('/resume/:resumeId')
+  //   .get(resume.read_resume)
+  //   .delete(resume.delete_resume)
 };
