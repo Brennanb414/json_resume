@@ -1,0 +1,17 @@
+{
+  "name": "json_resume_backend",
+  "version": "1.0.0",
+  "description": "backend for the json resume template",
+  "main": "index.js",
+  "repository": "https://github.com/Brennanb414/json_resume",
+  "author": "Brennan Brown",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+}
