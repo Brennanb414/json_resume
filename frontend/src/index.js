@@ -11,7 +11,7 @@ const MainPage = () => {
   const timesToRetry = 5;
 
   const fetchData = () => {
-    fetch("http://localhost:3000/resume")
+    fetch("http://www.brennanmbrown.com:3000/resume")
     .then(res => 
       res.json()
         .then(jsonRes => {
