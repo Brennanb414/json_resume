@@ -12,8 +12,8 @@
     "pm2": "^4.2.3"
   },
   "scripts": {
-    "start": "PORT=80 pm2 start index.js",
+    "start": "NODE_ENV=production PORT=80 pm2 start index.js",
     "stop": "pm2 stop index.js",
-    "dev": "node index.js"
+    "dev": "NODE_ENV=development node index.js"
   }
 }
