@@ -8,10 +8,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.2",
-    "nodemon": "^2.0.2"
+    "mongoose": "^5.9.2"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   }
 }
