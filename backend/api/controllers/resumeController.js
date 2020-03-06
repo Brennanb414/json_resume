@@ -2,7 +2,7 @@
 
 let mongoose = require('mongoose'),
   Resume = mongoose.model('Resume'),
-  master_id = '5e5d397ee7c0c802b6e37254';
+  master_id = '5e62bcb0ff6e53049b5e3b88';
 
   exports.list_all_resumes = (req, res) => {
     Resume.findById(master_id, (err, resume) => {
