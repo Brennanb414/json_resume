@@ -17,7 +17,7 @@ const allowCrossDomain = (req, res, next) => {
 }
 
 app.use(express.static(path.join(__dirname,'../frontend/build')));
-app.use(express.static(__dirname,'../public/img'))
+app.use(express.static(path.join(__dirname,'../frontend/public/img')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(allowCrossDomain);
