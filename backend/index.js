@@ -16,7 +16,8 @@ const allowCrossDomain = (req, res, next) => {
   next();
 }
 
-//app.use(express.static(path.join(__dirname,'../frontend/build')));
+app.use(express.static(path.join(__dirname,'../frontend/build')));
+app.use(express.static(__dirname,'../public/img'))
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(allowCrossDomain);
@@ -24,9 +25,9 @@ app.use(allowCrossDomain);
 let routes = require('./api/routes/resumeRoutes');
 routes(app);
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname,'../frontend/build/index.html'))
-// })
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname,'../frontend/build/index.html'))
+})
 
 app.listen(port);
 

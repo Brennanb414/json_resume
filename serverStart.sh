@@ -1,1 +1,1 @@
-node backend/index.js
+yarn --cwd backend start
