@@ -1,0 +1,19 @@
+{
+  "name": "json_resume_backend",
+  "version": "1.0.0",
+  "description": "backend for the json resume template",
+  "main": "index.js",
+  "repository": "https://github.com/Brennanb414/json_resume",
+  "author": "Brennan Brown",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "pm2": "^4.2.3"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production PORT=80 pm2 start index.js",
+    "stop": "pm2 stop index.js",
+    "dev": "NODE_ENV=development node index.js"
+  }
+}

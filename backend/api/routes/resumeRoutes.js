@@ -2,7 +2,7 @@
 module.exports = function(app) {
   let resume = require('../controllers/resumeController');
 
-  app.route('/resume')
+  app.route('/api/resume')
     .get(resume.list_all_resumes)
     .post(resume.create_resume)
     .put(resume.update_resume)

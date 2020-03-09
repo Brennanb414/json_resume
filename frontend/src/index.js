@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import ResumeContainer from './components/resumeContainer';
+import { apiEndpoint } from './userInput'
 import './resume.css';
 
 const MainPage = () => {
@@ -11,7 +12,7 @@ const MainPage = () => {
   const timesToRetry = 5;
 
   const fetchData = () => {
-    fetch("http://localhost:3000/resume")
+    fetch(`${apiEndpoint}/resume`)
     .then(res => 
       res.json()
         .then(jsonRes => {

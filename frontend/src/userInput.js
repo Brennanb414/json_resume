@@ -7,11 +7,7 @@ export const badgeImgMapper = {
   'linkedin':'http://www.brennanmbrown.com/square-linkedin-512.png',
 }
 
-//place other badges you want here, they must have a link, name, and img
-export const otherBadges = [
-  {
-    link: 'a',
-    name: 'b',
-    img: 'c'
-  },
-]
+export const apiEndpoint = '/api'
+
+//place other badges you want here, they must have a link, name, and img: {link: '', name:'', img:''}
+export const otherBadges = []
