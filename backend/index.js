@@ -3,10 +3,11 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Resume = require('./api/models/resumeModel'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  path = require('path');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://104.43.208.92/resumeDB');
+mongoose.connect(process.env.NODE_ENV === 'development' ? 'mongodb://104.43.208.92/resumeDB' : 'mongodb://localhost/resumeDB');
 
 const allowCrossDomain = (req, res, next) => {
   res.header('Access-Control-Allow-Origin', "*");
@@ -15,12 +16,18 @@ const allowCrossDomain = (req, res, next) => {
   next();
 }
 
+app.use(express.static(path.join(__dirname,'../frontend/build')));
+app.use(express.static(path.join(__dirname,'../frontend/public/img')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(allowCrossDomain);
 
 let routes = require('./api/routes/resumeRoutes');
 routes(app);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname,'../frontend/build/index.html'))
+})
 
 app.listen(port);
 
