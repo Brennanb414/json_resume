@@ -1,0 +1,13 @@
+{
+  "name": "insect_sync",
+  "version": "1.0.0",
+  "description": "used to sync insect pictures from inaturalist.org to a local mongo db for a bug identification game",
+  "main": "insectSync.js",
+  "repository": "https://github.com/Brennanb414/json_resume/",
+  "author": "Brennan Brown",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^3.5.5",
+    "node-fetch": "^2.6.0"
+  }
+}

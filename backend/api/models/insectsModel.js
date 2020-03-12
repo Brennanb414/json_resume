@@ -14,6 +14,4 @@ let InsectsSchema = new Schema({
 })
 InsectsSchema.plugin(random);
 
-
-
 module.exports = mongoose.model('Insects', InsectsSchema)

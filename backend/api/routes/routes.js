@@ -15,8 +15,4 @@ module.exports = function(app) {
     .delete(insects.delete_insects)
   app.route('/api/getFourInsects')
     .get(insects.list_four_insects)
-  
-  // app.route('/resume/:resumeId')
-  //   .get(resume.read_resume)
-  //   .delete(resume.delete_resume)
 };
