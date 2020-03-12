@@ -12,6 +12,9 @@ module.exports = function(app) {
     .get(insects.list_all_insects)
     .post(insects.update_insects)
     .put(insects.update_insects)
+    .delete(insects.delete_insects)
+  app.route('/api/getFourInsects')
+    .get(insects.list_four_insects)
   
   // app.route('/resume/:resumeId')
   //   .get(resume.read_resume)

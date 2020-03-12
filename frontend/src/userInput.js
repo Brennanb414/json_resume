@@ -10,4 +10,10 @@ export const badgeImgMapper = {
 export const apiEndpoint = '/api'
 
 //place other badges you want here, they must have a link, name, and img: {link: '', name:'', img:''}
-export const otherBadges = []
+export const otherBadges = [
+  {
+    link: "/whos_that/bugemon.html",
+    name: "Bug Identification Game",
+    img: "/img/pixel_dragonfly_FSeMCoA_4SwGPKK.png"
+  }
+]

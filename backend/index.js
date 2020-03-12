@@ -10,7 +10,7 @@ var express = require('express'),
   let routes = require('./api/routes/routes');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.NODE_ENV === 'development' ? 'mongodb://104.43.208.92:27017/resumeDB' : 'mongodb://localhost/resumeDB', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/resumeDB', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const allowCrossDomain = (req, res, next) => {
   res.header('Access-Control-Allow-Origin', "*");
@@ -20,7 +20,8 @@ const allowCrossDomain = (req, res, next) => {
 }
 
 app.use(express.static(path.join(__dirname,'../frontend/build')));
-app.use(express.static(path.join(__dirname,'../frontend/public/img')));
+app.use('/img', express.static(path.join(__dirname,'../frontend/public/img')));
+app.use('/whos_that', express.static(path.join(__dirname,'../frontend/public/whos_that')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(allowCrossDomain);

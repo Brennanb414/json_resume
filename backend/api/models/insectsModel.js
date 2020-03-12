@@ -1,5 +1,6 @@
 'use strict';
 let mongoose = require('mongoose');
+let random = require('mongoose-simple-random');
 let Schema = mongoose.Schema;
 
 let InsectsSchema = new Schema({
@@ -11,6 +12,7 @@ let InsectsSchema = new Schema({
   },
   photo_links: [String]
 })
+InsectsSchema.plugin(random);
 
 
 

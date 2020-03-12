@@ -11,8 +11,16 @@ let mongoose = require('mongoose'),
     });
   };
 
+  exports.list_four_insects = (req, res) => {
+    Insects.findRandom({}, {}, {limit:4}, (err, insects) => {
+      if(err)
+        res.send(err);
+      res.json(insects);
+    });
+  };
+
   exports.create_insects = (req, res) => {
-    var new_insects = new Insects({name: 'abc1aasa237', photo_links:['abc1264']});
+    var new_insects = new Insects(req.body);
     new_insects.save((err, insects) => {
       if(err)
         res.send(err);
