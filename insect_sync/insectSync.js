@@ -4,11 +4,11 @@ let MongoClient = require('mongodb').MongoClient;
 const clean = (apiResponse) => {
   const data = apiResponse.map(el => {
     const output = {
-      name: el.taxon.common_name ? el.taxon.common_name.name : el.species_guess, 
+      name: el.taxon.common_name ? el.taxon.common_name.name : '', 
       photo_links: el.photos.map(photo => photo.medium_url)
     }
     return output;
-  });
+  }).filter(el => el.name);
   return data;
 };
 
