@@ -8,6 +8,7 @@ A separate mongoDB server should be running on the same box as this application.
 #   BACKEND INSTRUCTIONS
 #
 ###
+    MAKE SURE YOUR USER ACCOUNT HAS THE ABILITY TO BIND TO PORT 80! (https://stackoverflow.com/questions/7929563/node-js-express-app-wont-start-listening-on-port-80)
     running 'yarn start' in the backend folder starts the express server through a pm2 daemon.
 
 ###
@@ -17,6 +18,8 @@ A separate mongoDB server should be running on the same box as this application.
 ###
     Frontend should work out of the box, the build files are there from previous builds.
     Any changes to frontend code need to be rebuilt either with the build.sh file or by running 'yarn build' from the frontend directory
+
+    If you want to add badges but do not want to add them as "profiles" to your resume json you can add them in the userInput.js file (/frontend/src/userInput.js)
 
 ###
 #
