@@ -17,23 +17,21 @@ This application runs an express server from the backend folder which then reads
 
 A separate mongoDB server should be running on the same box as this application. You may need to initialize a database called "resumeDB"
 
-##   BACKEND
+##   Backend
    MAKE SURE YOUR USER ACCOUNT HAS THE ABILITY TO BIND TO PORT 80! (https://stackoverflow.com/questions/7929563/node-js-express-app-wont-start-listening-on-port-80)
     running 'yarn start' in the backend folder starts the express server through a pm2 daemon.
 
-##  FRONTEND
+##  Frontend
    Frontend should work out of the box, the build files are there from previous builds.
     Any changes to frontend code need to be rebuilt either with the build.sh file or by running 'yarn build' from the frontend directory
 
    If you want to add badges but do not want to add them as "profiles" to your resume json you can add them in the userInput.js file (/frontend/src/userInput.js)
 
-##   INSECT SYNC
+##   Insect Sync
    Set up a cronjob to run cron.sh on a semi-regular basis. (debian tutorial: https://linux4one.com/how-to-set-up-cron-job-on-debian-9/)
    This will scrape the most current 100 insect/spider records and insert them into your running mongoDB.
 
 # TODO:
--Build auth into POST requests
-
--Have a cached version of the main page to prevent "No Resume Found" from popping up when Azure lowers my priority
-
--Better styling ... I guess 🙄
+- Build auth into POST requests
+- Have a cached version of the main page to prevent "No Resume Found" from popping up when Azure lowers my priority
+- Better styling ... I guess 🙄
