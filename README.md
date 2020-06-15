@@ -1,7 +1,7 @@
 
 # Intro
 
-This repository is my personal website which hosts a RESTful API using the schema outlined at https://jsonresume.org/schema/ on an express backend
+This repository is my personal website which hosts a RESTful API using the schema outlined at https://jsonresume.org/schema/ on an express backend \
 It then displays direct calls to that backend through a react frontend.
 
 It is relatively easily editable to fit your own needs. If you have any questions or need help setting it up please feel free to reach out to me!
