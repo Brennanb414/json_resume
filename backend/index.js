@@ -4,10 +4,16 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Resume = require('./api/models/resumeModel'),
   bodyParser = require('body-parser'),
-  path = require('path');
+  path = require('path'),
+  Insects = require('./api/models/insectsModel'),
+  favicon = require('serve-favicon');
+
+  let routes = require('./api/routes/routes');
+
+  const mongoUri = 'mongodb://localhost/resumeDB'
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.NODE_ENV === 'development' ? 'mongodb://104.43.208.92/resumeDB' : 'mongodb://localhost/resumeDB');
+mongoose.connect(mongoUri, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const allowCrossDomain = (req, res, next) => {
   res.header('Access-Control-Allow-Origin', "*");
@@ -17,12 +23,13 @@ const allowCrossDomain = (req, res, next) => {
 }
 
 app.use(express.static(path.join(__dirname,'../frontend/build')));
-app.use(express.static(path.join(__dirname,'../frontend/public/img')));
+app.use('/img', express.static(path.join(__dirname,'../frontend/public/img')));
+app.use('/whos_that', express.static(path.join(__dirname,'../frontend/public/whos_that')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(allowCrossDomain);
+app.use(favicon(path.join(__dirname,'..','frontend','public','img','favicon.ico')));
 
-let routes = require('./api/routes/resumeRoutes');
 routes(app);
 
 app.get('/', (req, res) => {

@@ -1,0 +1,125 @@
+<html>
+	<head>
+    <title> Who's That Bugemon!?</title>
+    <button onclick="history.back(-1)">Go Back</button>
+		<!-- <link rel="icon" href="/img/favicon.ico" type="image/png"> -->
+			<style> 
+			.container {
+				display: flex;
+				flex-wrap: wrap;
+				width: 100%;
+				justify-content: center;
+			}
+			.bug-photo {
+				height: 20em;
+				margin: 0.3em;
+			}
+			.answer-button {
+				font-size: calc(24px + 0.2em);
+				width: 13em;
+				padding: 0.3em;
+				margin: 0.25em;
+				display: none;
+			}
+
+			</style>
+		
+			<script>
+        function rightAnswer() {
+            window.alert("Correct!");
+            userAction();
+          }
+          
+        function shuffle(sourceArray) {
+          for (var i = 0; i < sourceArray.length - 1; i++) {
+            var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+            var temp = sourceArray[j];
+            sourceArray[j] = sourceArray[i];
+            sourceArray[i] = temp;
+          }
+          return sourceArray;
+        };
+        
+              
+        function randomBetween(min,max) {
+          var random = Math.floor(Math.random() * (+max - +min)) + +min; 
+          return random;
+        }
+        
+        const userAction = async() => {
+          const response = await fetch('http://www.brennanmbrown.com/api/getFourInsects')
+          var insects = await response.json();
+
+          console.log('insects', insects);
+          try{
+            refillPhotos(insects[0]['photo_links']);
+            let bugNames = insects.map(el => el.name)
+            refillButtons(bugNames);
+          }
+          catch(err){
+            console.log(err);
+            userAction();
+          }
+        }
+        
+        function refillPhotos(photoArray) {
+          var ap = document.getElementById("answer-photos")
+          
+          //remove all current children of the container div
+          while(ap.lastChild) {
+            ap.removeChild(ap.lastChild);
+          }
+          
+          //for each of the photos, create a new child          
+            for (var i = 0; i < photoArray.length; i++) {
+              var ne = document.createElement("img");
+              ne.setAttribute("src", photoArray[i]);
+              ne.setAttribute("class","bug-photo");
+              ap.appendChild(ne);
+            }
+          }
+        //first name in json will be correct, all others not
+        function refillButtons(bugNames){
+
+          var buttons = document.getElementsByClassName("answer-button");
+          
+          //on page load buttons are invisible - so uninvis them
+          for (let element of buttons) {
+            element.style = "display:inline-block";
+          }
+          
+          var randNameArray = shuffle(bugNames.slice());
+          for (var i = 0; i < randNameArray.length; i++) {
+            buttons[i].innerHTML = randNameArray[i]
+            
+            if(randNameArray[i] == bugNames[0]) {
+              buttons[i].setAttribute('onclick','rightAnswer()')
+            }
+            else{
+              buttons[i].setAttribute('onclick','wrongAnswer()')
+            }
+          }
+        }
+			</script>	
+	</head>
+	
+	<body onload = "userAction()" style = "font-family: verdana">
+		<header>
+			<nav>
+			</nav>
+		</header>
+	<div id = "answer-photos" class = "container">
+	</div>
+	<div id = "answer-buttons" class = "container">
+		<button type = "submit" class = "answer-button">a</button>
+		<button type = "submit" class = "answer-button">b</button>
+		<button type = "submit" class = "answer-button">c</button>
+		<button type = "submit" class = "answer-button">d</button>
+	</div>
+	
+	<button type= "submit" onclick= "userAction()">Next</button>
+	</body>
+		
+	
+</html>
