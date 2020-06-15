@@ -34,4 +34,4 @@ A separate mongoDB server should be running on the same box as this application.
 # TODO:
 -Build auth into POST requests
 -Have a cached version of the main page to prevent "No Resume Found" from popping up when Azure lowers my priority
--Better styling (I guess 🙄.)
+-Better styling ... I guess 🙄
