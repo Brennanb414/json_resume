@@ -2,28 +2,8 @@
 	<head>
     <title> Who's That Bugemon!?</title>
     <button onclick="history.back(-1)">Go Back</button>
-		<!-- <link rel="icon" href="/img/favicon.ico" type="image/png"> -->
-			<style> 
-			.container {
-				display: flex;
-				flex-wrap: wrap;
-				width: 100%;
-				justify-content: center;
-			}
-			.bug-photo {
-				height: 20em;
-				margin: 0.3em;
-			}
-			.answer-button {
-				font-size: calc(24px + 0.2em);
-				width: 13em;
-				padding: 0.3em;
-				margin: 0.25em;
-				display: none;
-			}
-
-			</style>
-		
+    <!-- <link rel="icon" href="/img/favicon.ico" type="image/png"> -->
+    <link rel="stylesheet" type="text/css" href="bugemon.css">		
 			<script>
         function rightAnswer() {
             window.alert("Correct!");
@@ -109,16 +89,15 @@
 			<nav>
 			</nav>
 		</header>
-	<div id = "answer-photos" class = "container">
-	</div>
-	<div id = "answer-buttons" class = "container">
-		<button type = "submit" class = "answer-button">a</button>
-		<button type = "submit" class = "answer-button">b</button>
-		<button type = "submit" class = "answer-button">c</button>
-		<button type = "submit" class = "answer-button">d</button>
-	</div>
-	
-	<button type= "submit" onclick= "userAction()">Next</button>
+    <div id = "answer-photos" class = "container">
+    </div>
+    <div id = "answer-buttons" class = "answer-container">
+      <button type = "submit" class = "answer-button">a</button>
+      <button type = "submit" class = "answer-button">b</button>
+      <button type = "submit" class = "answer-button">c</button>
+      <button type = "submit" class = "answer-button">d</button>
+    </div>
+    <button type= "submit" onclick= "userAction()">Next</button>
 	</body>
 		
 	

@@ -1,0 +1,28 @@
+.container, .answer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-row: auto auto;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.container {
+    width: 100%;
+}
+
+.answer-container {
+    width: 50%;
+    margin: auto;
+}
+
+.bug-photo {
+    height: 20em;
+    margin: 0.3em;
+}
+.answer-button {
+    font-size: calc(24px + 0.2em);
+    width: 13em;
+    padding: 0.3em;
+    margin: 0.25em;
+    display: none;
+}
