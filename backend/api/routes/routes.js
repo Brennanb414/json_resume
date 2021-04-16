@@ -5,8 +5,8 @@ module.exports = function(app) {
 
   app.route('/api/resume')
     .get(resume.list_all_resumes)
-    // .post(resume.create_resume)
-    // .put(resume.update_resume)
+    .post(resume.create_resume)
+    .put(resume.update_resume)
 
   app.route('/api/insects')
     .get(insects.list_all_insects)

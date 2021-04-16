@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { badgeImgMapper, otherBadges } from '../userInput'
-import { dateConversionFromNumbers } from '../utils/common'
 import WorkContainer from './workContainer'
 import EducationContainer from './educationContainer'
 import SkillsContainer from './skillsContainer'
 import AwardsContainer from './awardsContainer'
 
 const ProfileImage = styled.img`
-  border-radius:50px
+  border-radius:50px;
+	-webkit-box-shadow: 3px 4px 3px 0px #000000;
+	box-shadow: 3px 4px 3px 0px #000000;
+  margin-right: 1em;
+  margin-bottom: 0.5em;
 `
 
 const Badge = styled.a`
@@ -21,7 +24,7 @@ const ResumeContainer = ({
   resume
 }) => {
   console.log(resume);
-  return !resume.basics ? <p>resume empty</p> : 
+  return !resume.basics ? <p></p> : 
   <>
     <header>
 			<div className="flex-parent">
@@ -49,10 +52,14 @@ const ResumeContainer = ({
 				</div>
 			</div>
 		</header>
-    {resume.work && <WorkContainer works={resume.work}/>}
-    {resume.education && <EducationContainer educations={resume.education} />}
-    {resume.awards && <AwardsContainer awards={resume.awards} />}
-    {resume.skills && <SkillsContainer skills={resume.skills} />}
+    <div className="parent">
+      {resume.work && <WorkContainer works={resume.work}/>}
+      <div className="flex-parent">
+        {resume.education && <EducationContainer educations={resume.education} />}
+        {resume.awards && <AwardsContainer awards={resume.awards} />}
+      </div>
+      {resume.skills && <SkillsContainer skills={resume.skills} />}
+    </div>
   </>
 }
 

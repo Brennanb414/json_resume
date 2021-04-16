@@ -1,5 +1,12 @@
+body {
+    height: 100%;
+    background: linear-gradient(0deg, white 50%, mediumpurple 50%);
+	background-attachment: fixed;
+}
+
 h2 {
 	padding-left: 1em;
+	/* text-align: center; */
 }
 
 h3 {
@@ -23,11 +30,11 @@ ul {
 }
 
 .skill {
-	font-size: 0.8em
+	font-size: 0.8em;
 }
 
 .indent {
-	padding-left: 3em
+	padding-left: 3em;
 }
 
 .links {
@@ -36,11 +43,7 @@ ul {
 }
 
 .parent {
-	background: mediumpurple;
-	padding: 1rem;
-}
-.child {
-	border: 1px solid indigo;
+	display: inline-block;
 	padding: 1rem;
 }
 
@@ -67,4 +70,22 @@ ul {
 	flex: 1;
 	font-size:0.8em;
 	font-style: italic;
+}
+.resume-section{
+	display:block;
+	background-color:lightblue;
+	padding-right: 3em;
+	padding: 0.5em;
+	margin-bottom: 1em;
+	-webkit-box-shadow: 3px 4px 3px 0px #000000; 
+	box-shadow: 3px 4px 3px 0px #000000;
+	border-radius:15px;
+}
+.resume-half-section{
+	width:48%;
+	margin-right: 2%;
+}
+.right {
+	float:right;
+	margin-right: 0;
 }

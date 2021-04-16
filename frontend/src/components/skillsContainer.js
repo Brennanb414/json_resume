@@ -13,22 +13,22 @@ const SkillsContainer = ({
   })
 
   return (
-    <>
-    <h2>Skills</h2>
-    <div class="indent">
-    {Object.keys(combinedSkills).map(level => {
-      return (
-        <>
-        <div class="skill-header">
-          {level} :
-        </div>
-        <div class="skill"> 
-          {combinedSkills[level].join(' | ')} 
-        </div> <br />
-        </>
-      )})}
+    <div className="resume-section">
+      <h2>Skills</h2>
+      <div className="indent">
+      {Object.keys(combinedSkills).map(level => {
+        return (
+          <>
+          <div class="skill-header">
+            {level} :
+          </div>
+          <div class="skill"> 
+            {combinedSkills[level].join(' | ')} 
+          </div> <br />
+          </>
+        )})}
+      </div>
     </div>
-    </>
   )
 }
 

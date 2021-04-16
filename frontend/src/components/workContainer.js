@@ -15,16 +15,15 @@ const WorkContainer = ({
   })
 
   return (
-  <>
+  <div className='resume-section'>
     <h2>Experience</h2>
+    <div className="break"></div>
     <div className='indent'>
       {Object.keys(combinedWorks).map(company => {
         return (
         <>
           <div class="flex-parent">
             <div class="flex-header"> {company} </div>
-            <div class="flex-subheader"></div>
-            <div class="flex-subheader"></div>
           </div>
           {combinedWorks[company].map( work =>
             <>
@@ -45,7 +44,7 @@ const WorkContainer = ({
         )
       })}
     </div>
-  </>
+  </div>
   )
 }
 
