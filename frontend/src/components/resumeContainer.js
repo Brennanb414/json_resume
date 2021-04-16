@@ -1,32 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { badgeImgMapper, otherBadges } from '../userInput'
-import { dateConversionFromNumbers } from '../utils/common'
 import WorkContainer from './workContainer'
 import EducationContainer from './educationContainer'
 import SkillsContainer from './skillsContainer'
 import AwardsContainer from './awardsContainer'
 
-const ProfileImage = styled.img`
-  border-radius:50px
-`
-
-const Badge = styled.a`
-  display:inline-block; 
-  padding:5px;
-`
-
 const ResumeContainer = ({
   resume
 }) => {
   console.log(resume);
-  return !resume.basics ? <p>resume empty</p> : 
+  return !resume.basics ? <p></p> : 
   <>
     <header>
 			<div className="flex-parent">
 				<div>
-					<ProfileImage src={resume.basics.picture} height="250em" />
+					<img className="profile-image" src={resume.basics.picture} height="250em" />
 				</div>
 				<div className="flex-header">
 					<h1>Brennan Brown</h1>
@@ -35,24 +24,35 @@ const ResumeContainer = ({
 							{resume.basics.email && 'Email: ' + resume.basics.email} <br />
               {resume.basics.profiles && resume.basics.profiles.map(el => {				
                 return ( badgeImgMapper[el.network.toLowerCase()] &&
-                <Badge href={el.url}>
+                <a className="badge" href={el.url}>
                   <img src={badgeImgMapper[el.network.toLowerCase()]} width="64px" height="64px" alt={el.network} /> 
-                </Badge>)
+                </a>)
               })}
               {otherBadges && otherBadges.map(el => {				
                 return (  
-                <Badge href={el.link}>
+                <a className="badge" href={el.link}>
                   <img src={el.img} width="64px" height="64px" alt={el.name} /> 
-                </Badge>)
+                </a>)
               })}								
 					</div>
 				</div>
 			</div>
 		</header>
-    {resume.work && <WorkContainer works={resume.work}/>}
-    {resume.education && <EducationContainer educations={resume.education} />}
-    {resume.awards && <AwardsContainer awards={resume.awards} />}
-    {resume.skills && <SkillsContainer skills={resume.skills} />}
+    <div className="parent">
+      {resume.work && <WorkContainer works={resume.work}/>}
+      <div className="flex-parent">
+        {resume.education && <EducationContainer educations={resume.education} />}
+        {resume.awards && <AwardsContainer awards={resume.awards} />}
+      </div>
+      {resume.skills && <SkillsContainer skills={resume.skills} />}
+      <br />
+      <div className="footer-container">
+        <a className="footer" href="https://github.com/Brennanb414/json_resume">
+          <img src="https://img.shields.io/static/v1?style=flat-square&logo=github&label=&message=Source&color=lightgrey"/>
+        </a>
+      </div>
+    </div>
+
   </>
 }
 

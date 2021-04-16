@@ -15,30 +15,29 @@ const EducationContainer = ({
   })
 
   return (
-    <>
-    <h2>Education</h2>
-    <div class="indent">
-    {Object.keys(combinedEducation).map(institution => {
-      return (
-      <>
-      <div class="flex-parent">
-      <div class="flex-header"> {institution} </div>
-        <div class="flex-subheader"> {dateConversionFromNumbers(combinedEducation[institution][0].startDate)} - {dateConversionFromNumbers(combinedEducation[institution][0].endDate) || 'Present'} </div>
-        <div class="flex-subheader"></div>
+    <div className="resume-section resume-half-section">
+      <h2>Education</h2>
+      <div className="indent">
+      {Object.keys(combinedEducation).map(institution => {
+        return (
+        <>
+        <div class="flex-parent">
+        <div class="flex-header"> {institution} </div>
+          <div class="flex-subheader"> {dateConversionFromNumbers(combinedEducation[institution][0].startDate)} - {dateConversionFromNumbers(combinedEducation[institution][0].endDate) || 'Present'} </div>
+        </div>
+          {combinedEducation[institution].map(education => {
+            return education.studyType === 'Minor' ? <div class="indent"> <h6 class="education"> 
+              {`${education.studyType}: ${education.area} `}
+            </h6></div> 
+            : <h5 class="education"> 
+              {`${education.studyType}: ${education.area} `}
+            </h5> 
+              
+          })}
+        </>
+        )})}
       </div>
-        {combinedEducation[institution].map(education => {
-          return education.studyType === 'Minor' ? <div class="indent"> <h6 class="education"> 
-            {`${education.studyType}: ${education.area} `}
-           </h6></div> 
-           : <h5 class="education"> 
-            {`${education.studyType}: ${education.area} `}
-           </h5> 
-            
-        })}
-      </>
-      )})}
     </div>
-    </>
   )
 }
 

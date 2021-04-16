@@ -6,7 +6,7 @@ It then displays direct calls to that backend through a react frontend.
 
 It is relatively easily editable to fit your own needs. If you have any questions or need help setting it up please feel free to reach out to me!
 
-If hosting yourself make sure you do not leave your POST/PUT requests open without authorization (or else anyone can edit your resume)
+If hosting yourself make sure you do not leave your POST/PUT requests open without authorization by commenting out the put/post sections in the backend/api/routes/routes.js file (or else anyone can edit your resume)
 
 This website is currently running at http://www.brennanmbrown.com/
 
@@ -33,5 +33,6 @@ A separate mongoDB server should be running on the same box as this application.
 
 # TODO:
 - Build auth into POST requests
-- Have a cached version of the main page to prevent "No Resume Found" from popping up when Azure lowers my priority
-- Better styling ... I guess 🙄
+- Styling for insect page
+- Cap number of records in insect sync db... it's been running every day for more than 2 years now
+- Jenkins pipeline
