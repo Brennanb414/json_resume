@@ -30,7 +30,6 @@ const WorkContainer = ({
             <div class="flex-parent">
               <div class="flex-header"><h5 class="role">{work.position}</h5></div>
               <div class="flex-subheader">{dateConversionFromNumbers(work.startDate)} - {dateConversionFromNumbers(work.endDate) || 'Present'}</div>
-              <div class="flex-subheader"></div>
             </div>
             <ul>
               {work.highlights.map(highlight => {

@@ -24,7 +24,6 @@ const EducationContainer = ({
         <div class="flex-parent">
         <div class="flex-header"> {institution} </div>
           <div class="flex-subheader"> {dateConversionFromNumbers(combinedEducation[institution][0].startDate)} - {dateConversionFromNumbers(combinedEducation[institution][0].endDate) || 'Present'} </div>
-          <div class="flex-subheader"></div>
         </div>
           {combinedEducation[institution].map(education => {
             return education.studyType === 'Minor' ? <div class="indent"> <h6 class="education"> 
