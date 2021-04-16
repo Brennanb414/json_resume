@@ -24,15 +24,15 @@ const ResumeContainer = ({
 							{resume.basics.email && 'Email: ' + resume.basics.email} <br />
               {resume.basics.profiles && resume.basics.profiles.map(el => {				
                 return ( badgeImgMapper[el.network.toLowerCase()] &&
-                <div className="badge" href={el.url}>
+                <a className="badge" href={el.url}>
                   <img src={badgeImgMapper[el.network.toLowerCase()]} width="64px" height="64px" alt={el.network} /> 
-                </div>)
+                </a>)
               })}
               {otherBadges && otherBadges.map(el => {				
                 return (  
-                <div className="badge" href={el.link}>
+                <a className="badge" href={el.link}>
                   <img src={el.img} width="64px" height="64px" alt={el.name} /> 
-                </div>)
+                </a>)
               })}								
 					</div>
 				</div>
@@ -45,7 +45,14 @@ const ResumeContainer = ({
         {resume.awards && <AwardsContainer awards={resume.awards} />}
       </div>
       {resume.skills && <SkillsContainer skills={resume.skills} />}
+      <br />
+      <div className="footer-container">
+        <a className="footer" href="https://github.com/Brennanb414/json_resume">
+          <img src="https://img.shields.io/static/v1?style=flat-square&logo=github&label=&message=Source&color=lightgrey"/>
+        </a>
+      </div>
     </div>
+
   </>
 }
 
