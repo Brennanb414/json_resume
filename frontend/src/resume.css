@@ -39,11 +39,11 @@ ul {
 
 .skill-header {
 	font-weight: bold;
-	font-size: 1em;
+	font-size: 100%;
 }
 
 .skill {
-	font-size: 0.8em;
+	font-size: 80%;
 }
 
 .indent {
@@ -52,7 +52,7 @@ ul {
 
 .links {
 	font-weight: normal;
-	font-size: 0.75em;
+	font-size: 75%;
 }
 
 .parent {
@@ -76,12 +76,12 @@ ul {
 
 .flex-header {
 	flex: 1;
-	font-size:1.2em;
+	font-size:120%;
 	font-weight: bold;
 }
 .flex-subheader{
 	flex: 1;
-	font-size:0.8em;
+	font-size:80%;
 	font-style: italic;
 }
 .resume-section{
@@ -94,9 +94,13 @@ ul {
 	box-shadow: 3px 4px 3px 0px #000000;
 	border-radius:15px;
 }
+.side-by-side{
+	display: flex;
+}
 .resume-half-section{
 	width:48%;
 	margin-right: 2%;
+	padding-bottom: 1em;
 }
 .right {
 	float:right;
@@ -105,7 +109,7 @@ ul {
 .footer {
 	background-color: black;
 	text-decoration: none;
-	font-size:0.4em;
+	font-size:40%;
 	position: absolute;
 	bottom:0;
 	right:50%;
@@ -114,4 +118,27 @@ ul {
 }
 .footer-container {
 	position: relative;
+}
+
+@media (max-width:800px)
+{
+	.right {
+		float:none;
+	}
+	.resume-half-section {
+		width: 100%;
+		margin-right:0%;
+		
+		display:block;
+		background-color:lightblue;
+		padding: 0.5em;
+		margin-bottom: 1em;
+		-webkit-box-shadow: 3px 4px 3px 0px #000000; 
+		box-shadow: 3px 4px 3px 0px #000000;
+		border-radius:15px;
+	}
+	.side-by-side {
+		display:block;
+		padding-right: 1em;
+	}
 }
