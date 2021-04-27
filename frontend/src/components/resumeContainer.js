@@ -40,7 +40,7 @@ const ResumeContainer = ({
 		</header>
     <div className="parent">
       {resume.work && <WorkContainer works={resume.work}/>}
-      <div className="flex-parent">
+      <div className="side-by-side">
         {resume.education && <EducationContainer educations={resume.education} />}
         {resume.awards && <AwardsContainer awards={resume.awards} />}
       </div>
