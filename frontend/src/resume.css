@@ -43,7 +43,11 @@ ul {
 }
 
 .skill {
+<<<<<<< HEAD
 	font-size: 80%;
+=======
+	font-size: 0.8em;
+>>>>>>> b5e8b47745857a7c0338bc1c57ae352a1de75a54
 }
 
 .indent {
